@@ -1,0 +1,25 @@
+{
+  "name": "man",
+  "description": "Single page Linux man pages app",
+  "main": "index.html",
+  "moduleType": [],
+  "authors": [
+    "Ilya Lukyanov"
+  ],
+  "license": "WTFPL",
+  "homepage": "ilyaluk.ru/man",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.0",
+    "polymer": "Polymer/polymer#^1.2.0",
+    "zlib.js": "imaya/zlib.js#^0.2.0",
+    "jquery.scrollTo": "^2.1.2"
+  }
+}
