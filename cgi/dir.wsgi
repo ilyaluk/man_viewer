@@ -10,6 +10,9 @@ def application(environ, start_response):
 			tmp.append(fname)
 		res[dirName.split('/')[-1]] = tmp[:]
 
+	for i in res:
+		res[i].sort(key=lambda s: s.lower())
+	
 	status = '200 OK'
 	output = bytes(json.dumps(res, separators=(',', ':')), 'ascii')
 

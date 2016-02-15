@@ -33,8 +33,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
   app.addEventListener('dom-change', function() {
-    console.log('Our app is ready to rock!');
+    $.ajax({
+      url: "/pages.json",
+      success: function(data) {
+        for (var key in data) {
+          if (data.hasOwnProperty(key)) {
+            var str = '<section id="group' + key.substr(3, 1) + '">\
+            <paper-material elevation="1">';
+            for (var i = 0; i < data[key].length; i++)
+              str += '<span>' + data[key][i] + '</span>';
+            str += '</paper-material></section>';
+
+            $('iron-pages').append(str);
+          }
+        };
+      }
+    });
   });
+
+  app.load_and_parse = function(fname) {
+    var tmp = fname.split('.');
+    var ext = tmp.pop();
+    tmp.push(ext);
+    var comp = (ext == 'gz');
+
+    var url = "mans/man" + tmp[tmp.length - 1 - comp][0] + "/" + fname;
+    // See https://developer.mozilla.org/en/DOM/XMLHttpRequest/Sending_and_Receiving_Binary_Data
+    $.ajax({
+      dataType: 'text',
+      mimeType: 'text/plain; charset=x-user-defined',
+      url: url,
+      async: true,
+      cache: true,
+      success: function (theContent) {
+        var chunk = [];
+        for (var i = 0; i < theContent.length; i++) {
+          chunk.push(theContent.charCodeAt(i) & 0xFF);
+        }
+
+        var str = String.fromCharCode.apply(null, chunk);
+
+        if (comp) {
+          var inflate = new Zlib.Gunzip(chunk);
+          var plain = inflate.decompress();
+          str = String.fromCharCode.apply(null, plain);
+        }
+        
+        $('#manPage').html(Manolo(str).toHTML());
+      }
+    });
+  }
+
 
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {

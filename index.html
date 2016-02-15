@@ -43,21 +43,19 @@
 				</paper-toolbar>
 
 				<!-- Drawer Content -->
-				<paper-menu attr-for-selected="data-route" selected="[[route]]">
-					<a data-route="home" href="{{baseUrl}}">
+				<paper-menu attr-for-selected="id" selected="[[route]]">
+					<a id="home" href="{{baseUrl}}">
 						<iron-icon icon="home"></iron-icon>
 						<span>Home</span>
 					</a>
 
-					<a data-route="users" href="{{baseUrl}}users">
-						<iron-icon icon="info"></iron-icon>
-						<span>Users</span>
-					</a>
-
-					<a data-route="contact" href="{{baseUrl}}contact">
-						<iron-icon icon="mail"></iron-icon>
-						<span>Contact</span>
-					</a>
+					<iron-ajax url="groups.json" last-response="{{groups}}" auto></iron-ajax>
+					<template is="dom-repeat" items="[[groups]]" as="item">
+						<a id="group{{item.num}}" href="{{baseUrl}}group/{{item.num}}">
+							<iron-icon icon="info"></iron-icon>
+							<span>[[item.short]]</span>
+						</a>
+					</template>
 				</paper-menu>
 			</paper-scroll-header-panel>
 
@@ -70,60 +68,94 @@
 					<span class="space"></span>
 
 					<!-- Toolbar icons -->
-					<paper-icon-button icon="refresh"></paper-icon-button>
 					<paper-icon-button icon="search"></paper-icon-button>
 
 					<!-- Application name -->
 					<div class="middle middle-container">
-						<div class="app-name">Polymer Starter Kit</div>
-					</div>
-
-					<!-- Application sub title -->
-					<div class="bottom bottom-container">
-						<div class="bottom-title">The future of the web today</div>
+						<div class="app-name">{{header}}</div>
 					</div>
 				</paper-toolbar>
 
 				<!-- Main Content -->
 				<div class="content">
-					<iron-pages attr-for-selected="data-route" selected="{{route}}">
-						<section data-route="home">
+					<iron-pages attr-for-selected="id" selected="{{route}}">
+						<section id="home">
 							<paper-material elevation="1">
-								<my-greeting></my-greeting>
-
-								<p class="subhead">You now have:</p>
-								<my-list></my-list>
-
-								<p>Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+								<p>Hello there! This is man pages viewer, working (mostly) on client side.</p>
 							</paper-material>
 
 							<paper-material elevation="1">
-								<p>This is another card.</p>
+								<p>Select man pages group from the left menu.</p>
 							</paper-material>
 						</section>
 
-						<section data-route="users">
+						<iron-ajax url="pages.json" last-response="{{pages}}" auto></iron-ajax>
+
+						<section id="group0">
 							<paper-material elevation="1">
-								<h2 class="page-title">Users</h2>
-								<p>This is the users section</p>
-								<a href$="{{baseUrl}}users/Addy">Addy</a><br>
-								<a href$="{{baseUrl}}users/Rob">Rob</a><br>
-								<a href$="{{baseUrl}}users/Chuck">Chuck</a><br>
-								<a href$="{{baseUrl}}users/Sam">Sam</a>
+								<template is="dom-repeat" items="[[pages.man0]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
 							</paper-material>
 						</section>
-
-						<section data-route="user-info">
+						<section id="group1">
 							<paper-material elevation="1">
-								<h2 class="page-title">User: {{params.name}}</h2>
-								<div>This is {{params.name}}'s section</div>
+								<template is="dom-repeat" items="[[pages.man1]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
 							</paper-material>
 						</section>
-
-						<section data-route="contact">
+						<section id="group2">
 							<paper-material elevation="1">
-								<h2 class="page-title">Contact</h2>
-								<p>This is the contact section</p>
+								<template is="dom-repeat" items="[[pages.man2]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group3">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man3]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group4">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man4]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group5">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man5]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group6">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man6]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group7">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man7]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group8">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages.man8]]" as="item">
+									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
+								</template>
+							</paper-material>
+						</section>
+						<section id="page">
+							<paper-material elevation="1" id="manPage">
 							</paper-material>
 						</section>
 					</iron-pages>

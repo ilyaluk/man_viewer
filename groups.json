@@ -1,0 +1,9 @@
+[{"num":0,"short":"C headers","desc":"C library header files"},
+{"num":1,"short":"General commands","desc":"General commands"},
+{"num":2,"short":"System calls","desc":"System calls"},
+{"num":3,"short":"Library functions","desc":"Library functions, covering in particular the C standard library"},
+{"num":4,"short":"Special files","desc":"Special files (usually devices, those found in /dev) and drivers"},
+{"num":5,"short":"File formats","desc":"File formats and conventions"},
+{"num":6,"short":"Games","desc":"Games and screensavers"},
+{"num":7,"short":"Miscellanea","desc":"Miscellanea"},
+{"num":8,"short":"System administration","desc":"System administration commands and daemons"}]
