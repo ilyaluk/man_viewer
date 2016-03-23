@@ -1,5 +1,11 @@
-# README #
+# Man pages
 
-Client-side man pages browser.
+> client-side man pages browser.
 
-[Demo](https://man.ilyaluk.ru/) (currently crashes Chrome ¯\\\_(ツ)\_/¯)
+[See it in action](https://man.ilyaluk.ru/)
+
+Web app written using Polymer framework, showing man pages.
+
+## License
+
+WTFPL
