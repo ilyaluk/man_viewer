@@ -2,7 +2,7 @@ def application(environ, start_response):
 	import json
 	import os
 
-	rootDir = '/srv/http/man/mans'
+	rootDir = '../man/mans'
 	res = {}
 	for dirName, subdirList, fileList in os.walk(rootDir):
 		tmp = []
