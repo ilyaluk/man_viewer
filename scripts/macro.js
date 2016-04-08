@@ -179,3 +179,45 @@ macro['TH'] = function (args) {
 macro['LO'] = function (args) {
     this.section = args[0];
 }
+
+macro['so'] = function (args) {
+    var url = 'mans/' + args[0];
+
+    var comp = false;
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    if (http.status == 404) {
+        url += '.gz';
+        comp = true;
+    }
+
+    // See https://developer.mozilla.org/en/DOM/XMLHttpRequest/Sending_and_Receiving_Binary_Data
+    $.ajax({
+      dataType: 'text',
+      mimeType: 'text/plain; charset=x-user-defined',
+      url: url,
+      async: false,
+      cache: true,
+      context: this,
+      success: function (theContent) {
+        var chunk = [];
+        for (var i = 0; i < theContent.length; i++) {
+          chunk.push(theContent.charCodeAt(i) & 0xFF);
+        }
+
+        var str = String.fromCharCode.apply(null, chunk);
+
+        if (comp) {
+          var inflate = new Zlib.Gunzip(chunk);
+          var plain = inflate.decompress();
+          str = String.fromCharCode.apply(null, plain);
+        }
+
+        str = decodeURIComponent(escape(str));
+
+        this.nodes = this.nodes.concat(Manolo(str).nodes);
+      }
+    });
+
+}
