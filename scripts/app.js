@@ -78,6 +78,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           var plain = inflate.decompress();
           str = String.fromCharCode.apply(null, plain);
         }
+
+        str = decodeURIComponent(escape(str));
         
         $('#manPage').html(Manolo(str).toHTML());
       }
