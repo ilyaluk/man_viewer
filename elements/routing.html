@@ -48,8 +48,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     });
 
     page('/group/:number', function(data) {
-      app.route = 'group' + data.params.number;
-      app.header = app.groups[~~data.params.number].short;
+      app.route = 'group_letters';
+      app.group_number = ~~data.params.number;
+      app.header = app.groups[app.group_number].short;
+      var firstLetter = function(str) {
+        return str.replace(/^_*([^_])[\s\S]*$/, "$1").toLowerCase();
+      }
+      var firstLetters = app.pages['man' + app.group_number].map(firstLetter);
+      app.letter_list = Array.from(new Set(firstLetters)).sort();
+    });
+
+    page('/group/:number/:letter', function(data) {
+      app.route = 'group_list';
+      app.group_number = ~~data.params.number;
+      app.group_letter = data.params.letter;
+      app.header = app.groups[app.group_number].short + ' — ' + app.group_letter;
+      var regex = RegExp("^_*" + app.group_letter);
+      app.pages_list = app.pages['man' + app.group_number].filter(regex.test.bind(regex));
     });
 
     page('/page/:name', function(data) {

@@ -74,6 +74,10 @@
 					<div class="middle middle-container">
 						<div class="app-name">{{header}}</div>
 					</div>
+
+					<!-- <div class="bottom bottom-container">
+						<div class="bottom-title">Test</div>
+					</div> -->
 				</paper-toolbar>
 
 				<!-- Main Content -->
@@ -91,69 +95,23 @@
 
 						<iron-ajax url="pages.json" last-response="{{pages}}" auto></iron-ajax>
 
-						<section id="group0">
+						<section id="group_letters">
 							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man0]]" as="item">
+								<template is="dom-repeat" items="[[letter_list]]" as="item">
+									<a href="{{baseUrl}}group/[[group_number]]/[[item]]" style="text-decoration:none">
+										<paper-button raised>[[item]]</paper-button>
+									</a>
+								</template>
+							</paper-material>
+						</section>
+						<section id="group_list">
+							<paper-material elevation="1">
+								<template is="dom-repeat" items="[[pages_list]]" as="item">
 									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
 								</template>
 							</paper-material>
 						</section>
-						<section id="group1">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man1]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group2">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man2]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group3">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man3]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group4">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man4]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group5">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man5]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group6">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man6]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group7">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man7]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group8">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages.man8]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
+
 						<section id="page">
 							<paper-material elevation="1" id="manPage">
 							</paper-material>
