@@ -21,11 +21,7 @@
 	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 	<!-- endbuild -->
 
-	<!-- Because this project uses vulcanize this should be your only html import
-			 in this file. All other imports should go in elements.html -->
 	<link rel="import" href="elements/elements.html">
-
-	<!-- For shared styles, shared-styles.html import in elements.html -->
 	<style is="custom-style" include="shared-styles"></style>
 </head>
 
@@ -67,17 +63,13 @@
 
 					<span class="space"></span>
 
-					<!-- Toolbar icons -->
-					<paper-icon-button icon="search"></paper-icon-button>
+					<!-- Search box -->
+					<vaadin-combo-box class="fieldset" items="[[pages_search]]" label="Search"></vaadin-combo-box>
 
 					<!-- Application name -->
 					<div class="middle middle-container">
 						<div class="app-name">{{header}}</div>
 					</div>
-
-					<!-- <div class="bottom bottom-container">
-						<div class="bottom-title">Test</div>
-					</div> -->
 				</paper-toolbar>
 
 				<!-- Main Content -->
@@ -94,6 +86,7 @@
 						</section>
 
 						<iron-ajax url="pages.json" last-response="{{pages}}" auto></iron-ajax>
+						<iron-ajax url="pages_search.json" last-response="{{pages_search}}" auto></iron-ajax>
 
 						<section id="group_letters">
 							<paper-material elevation="1">

@@ -34,6 +34,7 @@
     "page": "visionmedia/page.js#^1.6.4",
     "iron-ajax": "PolymerElements/iron-ajax#^1.1.1",
     "iron-list": "PolymerElements/iron-list#^1.2.3",
-    "paper-button": "PolymerElements/paper-button#^1.0.11"
+    "paper-button": "PolymerElements/paper-button#^1.0.11",
+    "vaadin-combo-box": "^1.0.0-rc1"
   }
 }

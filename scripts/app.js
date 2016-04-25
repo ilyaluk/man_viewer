@@ -89,7 +89,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   // See https://github.com/Polymer/polymer/issues/1381
   window.addEventListener('WebComponentsReady', function() {
-    // imports are loaded and elements have been registered
+    var combobox = document.querySelector('vaadin-combo-box');
+    combobox.addEventListener('value-changed', function(event) {
+      app.route = 'page';
+      app.page_name = event.detail.value;
+      app.header = event.detail.value;
+      app.load_and_parse(event.detail.value);
+    });
   });
 
   // Main area's paper-scroll-header-panel custom condensing transformation of
