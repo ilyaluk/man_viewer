@@ -30,27 +30,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   };
 
-  // Listen for template bound event to know when bindings
-  // have resolved and content has been stamped to the page
-  app.addEventListener('dom-change', function() {
-    $.ajax({
-      url: "/pages.json",
-      success: function(data) {
-        for (var key in data) {
-          if (data.hasOwnProperty(key)) {
-            var str = '<section id="group' + key.substr(3, 1) + '">\
-            <paper-material elevation="1">';
-            for (var i = 0; i < data[key].length; i++)
-              str += '<span>' + data[key][i] + '</span>';
-            str += '</paper-material></section>';
-
-            $('iron-pages').append(str);
-          }
-        };
-      }
-    });
-  });
-
   app.load_and_parse = function(fname) {
     var tmp = fname.split('.');
     var ext = tmp.pop();
