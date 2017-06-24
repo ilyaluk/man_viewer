@@ -2,6 +2,10 @@ require('./check-versions')()
 
 process.env.NODE_ENV = 'production'
 
+var fs = require('fs');
+var gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs);
+
 var ora = require('ora')
 var rm = require('rimraf')
 var path = require('path')

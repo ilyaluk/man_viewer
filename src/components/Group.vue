@@ -1,11 +1,15 @@
 <template>
-  <div>
-    <router-link v-for="letter in letters" :key="letter"
-                 :to="'/group/' + groupId + '/' + letter">
-      <md-button class="md-raised">
-        {{ letter }}
-      </md-button>
-    </router-link>
+  <div class="cont">
+    <md-card class="card">
+      <md-card-content>
+        <router-link v-for="letter in letters" :key="letter"
+                     :to="'/group/' + groupId + '/' + letter">
+          <md-button class="md-raised">
+            {{ letter }}
+          </md-button>
+        </router-link>
+      </md-card-content>
+    </md-card>
   </div>
 </template>
 
@@ -39,4 +43,10 @@ export default {
 </script>
 
 <style scoped>
+ .card {
+   margin: 15px;
+ }
+ .cont {
+   overflow-y: auto;
+ }
 </style>

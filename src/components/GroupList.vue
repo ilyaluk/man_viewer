@@ -1,9 +1,15 @@
 <template>
-  <div class="list">
-    <router-link v-for="page in pages" :key="page"
-                 :to="'/page/' + page">
-      {{ page }}<br>
-    </router-link>
+  <div class="cont">
+    <md-card class="card">
+      <md-card-content>
+        <div>
+          <router-link v-for="page in pages" :key="page"
+                       :to="'/page/' + page">
+            {{ page }}<br>
+          </router-link>
+        </div>
+      </md-card-content>
+    </md-card>
   </div>
 </template>
 
@@ -38,7 +44,10 @@ export default {
 </script>
 
 <style scoped>
- .list {
+ .card {
+   margin: 15px;
+ }
+ .cont {
    overflow-y: auto;
  }
 </style>

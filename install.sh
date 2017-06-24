@@ -13,3 +13,4 @@ for i in "${MANPATHS[@]}"; do
 done
 echo "Creating indexes"
 ./gen_index.py
+npm run build

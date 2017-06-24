@@ -8,7 +8,7 @@
           </div>
         </md-toolbar>
       </md-whiteframe>
-      <md-list @click.native="closeSidenav">
+      <md-list @click.native="closeSidenav" class="list">
         <md-list-item v-for="group in groups" key="group">
           <router-link :to="'/group/' + group.num">{{group.short}}</router-link>
         </md-list-item>
@@ -74,8 +74,12 @@ export default {
    flex: 1;
  }
 
+ .list {
+   overflow-y: auto;
+ }
+
  .main-sidebar > .md-sidenav-content {
-   width: 200px;
+   width: 200px !important;
    display: flex;
    flex-flow: column;
    overflow: hidden;
@@ -83,7 +87,7 @@ export default {
 
  @media (min-width: 1281px) {
    .container {
-     padding-left: 200px;
+     padding-left: 200px !important;
    }
 
    .main-sidebar > .md-sidenav-content {
