@@ -2,6 +2,8 @@
 
 > Single page Linux man pages viewer app
 
+## [Live demo](https://man.ilyaluk.ru)
+
 ## Build Setup
 
 ``` bash
