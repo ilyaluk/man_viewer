@@ -1,126 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="generator" content="Man pages">
-	<title>Man pages</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Man pages</title>
 
-	<!-- Chrome for Android theme color -->
-	<meta name="theme-color" content="#2E3AA1">
-
-	<!-- Tile color for Win8 -->
-	<meta name="msapplication-TileColor" content="#3372DF">
-
-	<!-- build:css styles/main.css -->
-	<link rel="stylesheet" href="styles/main.css">
-	<!-- endbuild-->
-
-	<!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
-	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-	<!-- endbuild -->
-
-	<link rel="import" href="elements/elements.html">
-	<style is="custom-style" include="shared-styles"></style>
-</head>
-
-<body unresolved>
-	<span id="browser-sync-binding"></span>
-	<template is="dom-bind" id="app">
-
-		<paper-drawer-panel id="paperDrawerPanel">
-			<!-- Drawer Scroll Header Panel -->
-			<paper-scroll-header-panel drawer fixed>
-
-				<!-- Drawer Toolbar -->
-				<paper-toolbar id="drawerToolbar">
-					<span class="menu-name">Man pages</span>
-				</paper-toolbar>
-
-				<!-- Drawer Content -->
-				<paper-menu attr-for-selected="id" selected="[[route]]">
-					<a id="home" href="{{baseUrl}}">
-						<iron-icon icon="home"></iron-icon>
-						<span>Home</span>
-					</a>
-
-					<iron-ajax url="groups.json" last-response="{{groups}}" auto></iron-ajax>
-					<template is="dom-repeat" items="[[groups]]" as="item">
-						<a id="group{{item.num}}" href="{{baseUrl}}group/{{item.num}}">
-							<iron-icon icon="info"></iron-icon>
-							<span>[[item.short]]</span>
-						</a>
-					</template>
-				</paper-menu>
-			</paper-scroll-header-panel>
-
-			<!-- Main Area -->
-			<paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header>
-				<!-- Main Toolbar -->
-				<paper-toolbar id="mainToolbar" class="tall">
-					<paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-
-					<span class="space"></span>
-
-					<!-- Search box -->
-					<vaadin-combo-box class="fieldset" items="[[pages_search]]" label="Search"></vaadin-combo-box>
-
-					<!-- Application name -->
-					<div class="middle middle-container">
-						<div class="app-name">{{header}}</div>
-					</div>
-				</paper-toolbar>
-
-				<!-- Main Content -->
-				<div class="content">
-					<iron-pages attr-for-selected="id" selected="{{route}}">
-						<section id="home">
-							<paper-material elevation="1">
-								<p>Hello there! This is man pages viewer, working (mostly) on client side.</p>
-							</paper-material>
-
-							<paper-material elevation="1">
-								<p>Select man pages group from the left menu.</p>
-							</paper-material>
-						</section>
-
-						<iron-ajax url="pages.json" last-response="{{pages}}" auto></iron-ajax>
-						<iron-ajax url="pages_search.json" last-response="{{pages_search}}" auto></iron-ajax>
-
-						<section id="group_letters">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[letter_list]]" as="item">
-									<a href="{{baseUrl}}group/[[group_number]]/[[item]]" style="text-decoration:none">
-										<paper-button raised>[[item]]</paper-button>
-									</a>
-								</template>
-							</paper-material>
-						</section>
-						<section id="group_list">
-							<paper-material elevation="1">
-								<template is="dom-repeat" items="[[pages_list]]" as="item">
-									<p><a href="{{baseUrl}}page/[[item]]">[[item]]</a></p>
-								</template>
-							</paper-material>
-						</section>
-
-						<section id="page">
-							<paper-material elevation="1" id="manPage">
-							</paper-material>
-						</section>
-					</iron-pages>
-				</div>
-			</paper-scroll-header-panel>
-		</paper-drawer-panel>
-
-		<paper-toast id="toast">
-			<span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
-		</paper-toast>
-	</template>
-
-	<!-- build:js scripts/app.js -->
-	<script src="scripts/app.js"></script>
-	<!-- endbuild-->
-</body>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
 </html>

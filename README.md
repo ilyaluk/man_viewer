@@ -1,29 +1,21 @@
-# Man pages
+# man
 
-> Лукьянов Илья, ПМИ-151, проект "Веб-приложение".
+> Single page Linux man pages viewer app
 
-Проект — реализация просмотрщика man-страниц на клиентской стороне, использующего Polymer framework.
+## Build Setup
 
-[Потыкать вживую](https://man.ilyaluk.ru/)
+``` bash
+# install dependencies
+npm install
 
-Формальные критерии: 
+# serve with hot reload at localhost:8080
+npm run dev
 
-* 4: Реализовано веб-приложение, отображающее каталог с содержимым, и содержание man-страниц в виде их исходного текста. **сделано**
+# build for production with minification
+npm run build
 
-* 6: Реализовано преобразование текста из groff в HTML. **сделано**
+# build for production and view the bundle analyzer report
+npm run build --report
+```
 
-* 8: Реализована поддержка сжатых gzip страниц. **сделано**
-
-* +1 балл. Интерфейс реализован в соответствии с требованиями концепции Google Material Design. **Не уверен на 100%, но вроде бы похоже на него.**
-
-* +1 балл. Реализован поиск по содержимому справочника. **сделано**
-
-* +1 балл. Реализована корректная работа навигации средствами браузера (кнопка “Назад” работает правильно). **сделано**
-
-Для установки надо запустить скрипт ./install.sh в папке проекта. Требуется python и bower. Ну и любой веб-сервер должен обслуживать данную директорию (желательно, чтобы это был корень домена).
-
-Проект реализован при помощи фреймворка Polymer, использует библиотеки Manolo (для рендеринга groff), zlib.js (для распаковки gz), jQuery (много для чего).
-
-Сложностей особо не возникло.
-
-Я научился использовать Polymer framework и bower.
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

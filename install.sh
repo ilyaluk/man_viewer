@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "Installing libs..."
-bower install
+npm install
 echo "Copying man pages..."
-mkdir mans
+mkdir -p static/mans
 IFS=':' read -ra MANPATHS <<< `man -w`
 for i in "${MANPATHS[@]}"; do
   for j in $i/man[[:digit:]]/; do
@@ -12,4 +12,4 @@ for i in "${MANPATHS[@]}"; do
   done
 done
 echo "Creating indexes"
-python gen_index.py
+./gen_index.py

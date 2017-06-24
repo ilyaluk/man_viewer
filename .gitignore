@@ -1,4 +1,11 @@
 bower_components/**
-mans/**
 pages.json
 pages_search.json
+.DS_Store
+node_modules/
+dist/
+static/mans/**
+src/assets/pages*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
